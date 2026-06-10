@@ -1580,16 +1580,47 @@ async function ytFetch(path,params,opt={cache:true}){
 
 async function getRecentVideosFromUploads(ch,apiKey){
   const uploads=ch.contentDetails?.relatedPlaylists?.uploads;
-  if(!uploads)return [];
-  // Step 1: get recent video IDs via playlistItems (cheap: 1 unit)
-  const listData=await ytFetch('playlistItems',{key:apiKey,part:'snippet,contentDetails',playlistId:uploads,maxResults:10});
+  if(!uploads){
+    console.warn('[WEEX KOL Finder] Missing uploads playlist:', ch.id, ch.snippet?.title);
+    return [];
+  }
+
+  let listData;
+  try{
+    // Step 1: get recent video IDs via playlistItems (cheap: 1 unit)
+    listData=await ytFetch('playlistItems',{key:apiKey,part:'snippet,contentDetails',playlistId:uploads,maxResults:10});
+  }catch(err){
+    // Some channels returned by search may have deleted/private/unavailable uploads playlists.
+    // Do not stop the whole search because of one invalid channel playlist.
+    console.warn('[WEEX KOL Finder] Skip recent video analysis: unavailable uploads playlist', {
+      channelId: ch.id,
+      channelTitle: ch.snippet?.title,
+      playlistId: uploads,
+      error: err?.message||err
+    });
+    return [];
+  }
+
   const items=listData.items||[];
   if(!items.length)return [];
+
   // Step 2: fetch full video details including COMPLETE description (snippet.description is truncated in playlistItems)
   // videos.list costs 1 unit for up to 50 videos — essential for social link extraction
   const videoIds=items.map(i=>i.contentDetails?.videoId||i.snippet?.resourceId?.videoId).filter(Boolean);
   if(!videoIds.length)return [];
-  const videoData=await ytFetch('videos',{key:apiKey,part:'snippet',id:videoIds.join(',')});
+
+  let videoData={items:[]};
+  try{
+    videoData=await ytFetch('videos',{key:apiKey,part:'snippet',id:videoIds.join(',')});
+  }catch(err){
+    // If full video details are unavailable, fall back to playlistItems snippets.
+    console.warn('[WEEX KOL Finder] Full video details unavailable; use playlist snippets only', {
+      channelId: ch.id,
+      channelTitle: ch.snippet?.title,
+      error: err?.message||err
+    });
+  }
+
   const videoMap={};
   (videoData.items||[]).forEach(v=>{videoMap[v.id]=v;});
   return items.map(i=>{
