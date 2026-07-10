@@ -123,10 +123,13 @@ label.fl{display:block;font-size:11.5px;font-weight:600;color:var(--ink2);margin
 
 /* Search mode toggle */
 .stt{display:flex;background:var(--panel);border:1px solid var(--border);border-radius:var(--rs);overflow:hidden}
-.stt-btn{flex:1;padding:8px 5px;font-size:12px;font-weight:700;color:var(--ink3);background:transparent;text-align:center;transition:all .15s;border-right:1px solid var(--border)}
+.stt-btn{flex:1;padding:8px 5px;font-size:12px;font-weight:700;color:var(--ink3);background:transparent;text-align:center;transition:all .15s;border-right:1px solid var(--border);cursor:pointer}
 .stt-btn:last-child{border-right:0}
-.stt-btn.active{background:var(--gold-dim);color:var(--gold);border-bottom:2px solid var(--gold)}
+.stt-btn.active{background:rgba(245,197,24,.14);color:var(--gold);border-bottom:2px solid var(--gold);box-shadow:inset 0 0 0 1px rgba(245,197,24,.2)}
 .stt-btn:hover:not(.active){color:var(--ink2);background:rgba(255,255,255,.03)}
+.region-mode{margin-top:8px}
+.region-mode .stt-btn{font-size:11px;line-height:1.25;padding:7px 6px;min-height:42px}
+.region-mode-hint{font-size:11px;color:var(--ink3);margin-top:6px;line-height:1.45}
 
 /* Excel upload zone */
 .upload-zone{
@@ -390,6 +393,159 @@ td{padding:13px 16px;font-size:13px;vertical-align:middle}
   .card-grid{grid-template-columns:1fr;padding:12px}
   .drawer{width:100%;right:-100%}
 }
+
+/* ── Visual refresh: BD workspace layout ── */
+:root{
+  --sidebar-w:360px;
+  --bg:#080808;
+  --bg2:#101010;
+  --panel:#181818;
+  --panel2:#202020;
+  --panel3:#272727;
+  --border:#2e2e2e;
+  --border2:#414141;
+  --ink:#f4f4f5;
+  --ink2:#d4d4d8;
+  --ink3:#8b8b92;
+  --gold:#f6c915;
+  --gold2:#ffdf4d;
+  --r:12px;
+  --rs:10px;
+}
+body{background:#080808}
+.app{background:#080808}
+aside{
+  background:#0f0f10;
+  border-right:1px solid #303033;
+  box-shadow:12px 0 36px rgba(0,0,0,.26);
+}
+.brand{
+  padding:22px 22px 18px;
+  background:#121212;
+  border-bottom:1px solid #303033;
+}
+.logo-box{width:42px;height:42px;border-radius:12px;box-shadow:none}
+.brand-text h1{font-size:16px;letter-spacing:-.2px}
+.brand-text p{font-size:12px;color:#9a9aa0}
+.lang-bar{padding:12px 20px;background:#111112;gap:6px}
+.lang-btn{height:28px;padding:0 11px;border-radius:7px}
+.lang-btn.active{background:#2a2513}
+.sidebar-content{gap:14px;padding:16px 16px 22px}
+.s-section{
+  padding:18px;
+  border:1px solid #2f2f32;
+  border-radius:14px;
+  background:#141415;
+  box-shadow:0 10px 28px rgba(0,0,0,.16);
+}
+.s-section:last-child{padding-bottom:18px;border-bottom:1px solid #2f2f32}
+.s-label{font-size:10px;margin-bottom:16px;color:#ffd633}
+.s-label::after{background:#343028}
+.s-stack{gap:16px}
+.s-row{gap:12px}
+label.fl{font-size:12px;font-weight:800;color:#dfdfe2;margin-bottom:8px}
+.hint,.region-mode-hint{font-size:12px;line-height:1.55;color:#96969d;margin-top:8px}
+.api-label-row{align-items:flex-end}
+.api-key-link{font-size:12px}
+.field,.sel,.ta,.ms-trigger{
+  background:#1b1b1c;
+  border-color:#38383c;
+  border-radius:11px;
+  min-height:40px;
+  color:#f5f5f6;
+}
+.field,.sel{height:42px}
+.ta{padding:11px 12px;font-size:13px}
+.keyword-ta{min-height:128px}
+.field:focus,.sel:focus,.ta:focus,.ms-trigger:hover,.multi-select.open .ms-trigger{
+  border-color:#f6c915;
+  box-shadow:0 0 0 3px rgba(246,201,21,.12);
+}
+.ms-trigger{font-size:13px;padding:9px 34px 9px 12px}
+.ms-menu{background:#181819;border-color:#3f3f43;border-radius:12px;box-shadow:0 20px 56px rgba(0,0,0,.72)}
+.ms-selected-list{gap:6px;margin-top:8px}
+.ms-chip{border-color:rgba(246,201,21,.34);background:rgba(246,201,21,.1);padding:3px 9px;font-size:11px;border-radius:8px}
+.stt{
+  height:44px;
+  border-radius:12px;
+  background:#1a1a1b;
+  border-color:#3a3a3d;
+  padding:3px;
+  gap:3px;
+  overflow:hidden;
+}
+.stt-btn{
+  border:0;
+  border-radius:9px;
+  font-size:13px;
+  padding:0 10px;
+  min-width:0;
+  color:#9a9aa0;
+}
+.stt-btn.active{
+  color:#111;
+  background:#f6c915;
+  border-bottom:0;
+  box-shadow:0 6px 18px rgba(246,201,21,.18);
+}
+.stt-btn:hover:not(.active){background:#252528;color:#f0f0f0}
+.region-mode-card{
+  padding:14px;
+  border:1px solid #343438;
+  background:#19191a;
+  border-radius:13px;
+}
+.region-mode{height:48px;margin-top:0}
+.region-mode .stt-btn{font-size:12px;line-height:1.2;min-height:0;font-weight:900}
+.btn-row{grid-template-columns:1fr 44px;gap:10px;margin-top:4px}
+.btn-primary{height:46px;border-radius:12px;box-shadow:none;font-size:14px}
+.btn-primary:hover{box-shadow:0 10px 30px rgba(246,201,21,.22)}
+.btn-icon{height:46px;border-radius:12px;background:#1b1b1d}
+main{background:#090909}
+.topbar{
+  padding:18px 28px;
+  background:#101011;
+  border-bottom:1px solid #2d2d30;
+}
+.topbar::after{display:none}
+.topbar h2{font-size:19px}
+.topbar-sub{font-size:13px}
+.btn-secondary,.view-toggle{border-radius:10px}
+.metrics-bar{
+  gap:10px;
+  padding:14px 28px;
+  background:#0d0d0e;
+  border-bottom:1px solid #2d2d30;
+}
+.metric-cell{
+  border:1px solid #303033;
+  border-radius:12px;
+  padding:15px 16px;
+  background:#151516;
+}
+.metric-cell .m-val{font-size:26px}
+.filter-bar{
+  padding:14px 28px;
+  background:#101011;
+  border-bottom:1px solid #2d2d30;
+  gap:10px 12px;
+}
+.notice-bar{background:#0f0f10;border-bottom:1px solid #2d2d30}
+table{min-width:1120px}
+thead th{background:#101011}
+tbody tr:hover{background:rgba(246,201,21,.045)}
+.drawer{background:#111112}
+.d-stat,.d-desc,.d-link-item{border-radius:12px}
+@media(max-width:1100px){
+  :root{--sidebar-w:320px}
+  .sidebar-content{padding:12px}
+  .s-section{padding:14px}
+}
+@media(max-width:860px){
+  .app{grid-template-columns:1fr}
+  aside{position:relative;height:auto;max-height:none}
+  .metrics-bar,.filter-bar{padding-left:16px;padding-right:16px}
+}
 </style>
 </head>
 <body>
@@ -416,7 +572,7 @@ td{padding:13px 16px;font-size:13px;vertical-align:middle}
     <div class="s-section s-stack">
       <div class="s-label" data-i="sec_search">Search Config</div>
 
-      <div>
+      <div class="api-key-config" style="display:none">
         <div class="api-label-row">
           <label class="fl" for="apiKey" data-i="lbl_apikey">YouTube Data API v3 Key</label>
           <a class="api-key-link" href="https://developers.google.com/youtube/v3/getting-started" target="_blank" rel="noopener noreferrer" data-i="api_get_key">Get API Key ↗</a>
@@ -445,7 +601,7 @@ binance tutorial
 bybit referral
 airdrop crypto
 web3 news"></textarea>
-        <p class="hint" data-i="hint_keywords_multi">Support multiple keywords. Separate by line, comma, or semicolon. Each keyword is sent to YouTube API exactly as entered.</p>
+        <p class="hint" data-i="hint_keywords_multi">Support multiple keywords. Separate by line, comma, or semicolon. Non-crypto keywords are automatically reinforced with crypto/web3 intent.</p>
       </div>
 
       <div class="s-row">
@@ -487,6 +643,14 @@ web3 news"></textarea>
             <option value="uk">Українська</option>
           </select>
         </div>
+      </div>
+      <div class="region-mode-card">
+        <label class="fl" data-i="lbl_region_mode">Region Mode</label>
+        <div class="stt region-mode" id="regionMode">
+          <button type="button" class="stt-btn active" data-region-mode="priority" data-i="region_priority">Region Priority</button>
+          <button type="button" class="stt-btn" data-region-mode="strict" data-i="region_strict">Strict Region</button>
+        </div>
+        <p class="region-mode-hint" id="regionModeHint" data-i="hint_region_priority">Prioritize selected countries, but may include global/nearby results.</p>
       </div>
 
       <div>
@@ -720,8 +884,8 @@ const LANGS={
   en:{
     brand_sub:'YouTube BD Dashboard',sec_search:'Search Config',lbl_apikey:'YouTube Data API v3 Key',api_get_key:'Get API Key ↗',hint_apikey:'Stored locally, never transmitted.',
     lbl_search_type:'Search Mode',mode_channel:'Channel',mode_video:'Video topic',mode_both:'Both',hint_search_type:'Video topic mode finds KOLs by content, not just channel name.',
-    lbl_keyword:'Search Keywords',hint_keywords_multi:'Support multiple keywords. Separate by line, comma, or semicolon. Each keyword is sent to YouTube API exactly as entered.',
-    lbl_region:'Regions',lbl_lang:'Language',opt_any:'Any',ms_all:'Select all',ms_clear:'Clear',lbl_maxresults:'Results/query',btn_search:'Search KOLs',
+    lbl_keyword:'Search Keywords',hint_keywords_multi:'Support multiple keywords. Separate by line, comma, or semicolon. Non-crypto keywords are automatically reinforced with crypto/web3 intent.',
+    lbl_region:'Regions',lbl_lang:'Language',lbl_region_mode:'Region Mode',opt_any:'Any',ms_all:'Select all',ms_clear:'Clear',region_priority:'Region Priority',region_strict:'Strict Region',hint_region_priority:'Prioritize selected countries, but may include global/nearby results.',hint_region_strict:'Hide channels with a different YouTube country; keep unknown-country KOLs found from the selected region.',lbl_maxresults:'Results/query',btn_search:'Search KOLs',
     sec_signed:'WEEX Signed KOLs',lbl_excel_upload:'Upload Signed List (Excel/CSV)',uz_label:'Click or drag to upload',uz_hint:'.xlsx / .xls / .csv',
     lbl_signed_manual:'Or enter manually',ph_signed:'One name per line\ne.g. Crypto Jack',hint_signed:'Matched against channel name, handle, and description.',
     sec_signed:'Signed KOL List',lbl_excel_upload:'Upload Excel / CSV',uz_label:'Click or drag to upload',uz_hint:'.xlsx / .xls / .csv — auto-merges with built-in list',
@@ -732,7 +896,7 @@ const LANGS={
     ph_filter:'Search name, description, links, exchange…',filter_search:'Search',filter_quality:'Quality',filter_signed:'Signed',filter_min_subs:'Min Subs',filter_max_subs:'Max Subs',filter_min_score:'Min Score',filter_freq:'Frequency',filter_exchange:'Exchange',opt_all_quality:'All Quality',q_high:'High',q_medium:'Medium',q_low:'Low',
     sf_exclude:'Exclude Signed',sf_include:'Include Signed',sf_only:'Signed Only',
     ph_min_subs:'Min subs',ph_max_subs:'Max subs',ph_min_score:'Min score',freq_all:'All Freq.',freq_1:'≥1/mo',freq_4:'≥4/mo',freq_12:'≥12/mo',exf_all:'All Exchanges',
-    notice:'Social links are extracted from channel description plus recent video descriptions. Regions are used as YouTube search bias only. Exchange detection checks channel description plus recent video titles/descriptions. Click any row for details.',
+    notice:'Social links are extracted from channel description, channel keywords, and recent video descriptions. Strict Region filters different-country channels but keeps unknown-country KOLs found from the selected region. Exchange detection requires partner/sponsor/referral context. Click any row for details.',
     ps1:'① Keyword',ps2:'② Search',ps3:'③ Channels',ps4:'④ Videos',ps5:'⑤ Compare signed list',
     th_kol:'KOL',th_quality:'Quality',th_score:'Score',th_subs:'Subscribers',th_freq:'Freq.',th_country:'Country',th_links:'Social Links',th_exchange:'Exchanges',th_status:'WEEX Status',th_action:'Action',
     empty_title:'No results yet',empty_desc:'Enter API key + keywords then Search, or press ◎ for demo data.',empty_filter_title:'No KOLs match filters',empty_filter_desc:'Try relaxing subscriber, quality, or score filters.',
@@ -745,7 +909,7 @@ const LANGS={
     toast_demo:'✅ Demo data loaded. Add "WEEX Signed Creator" to signed list to test.',
     toast_exported:'✅ Exported {n} KOLs',toast_no_export:'Nothing to export',toast_copied:'Link copied',
     toast_no_key:'Please enter YouTube Data API v3 Key',toast_no_kw:'Please enter a search keyword',
-    toast_no_results:'No channels found. Try a different keyword.',toast_no_relevant:'No Web3/Crypto KOLs passed the relevance check. Try a more specific crypto keyword.',toast_done:'✅ Done — {n} Web3/Crypto KOLs found · {x} irrelevant channels filtered',
+    toast_no_results:'No channels found. Try a different keyword.',toast_no_relevant:'No Web3/Crypto KOLs passed the relevance or strict-region check. Try Region Priority or a more specific crypto keyword.',toast_done:'✅ Done — {n} Web3/Crypto KOLs found · {x} irrelevant/region-mismatched channels filtered',
     toast_excel_ok:'✅ Signed list loaded: {n} names from Excel',toast_excel_err:'Failed to read file. Check format.',
     btn_channel:'Channel',btn_email:'Email',topbar_found:'{n} KOLs · {f} shown',
     match_total:'Total found',match_signed:'Signed / excluded',match_avail:'Available',
@@ -755,8 +919,8 @@ const LANGS={
   zh:{
     brand_sub:'YouTube BD 搜索仪表盘',sec_search:'搜索配置',lbl_apikey:'YouTube Data API v3 Key',api_get_key:'获取 API Key ↗',hint_apikey:'Key 仅存于本地，不会外传。',
     lbl_search_type:'搜索模式',mode_channel:'频道名称',mode_video:'视频话题',mode_both:'同时搜索',hint_search_type:'视频话题模式：通过 KOL 讨论内容发现他们，覆盖更广。',
-    lbl_keyword:'BD 搜索关键词',hint_keywords_multi:'支持多个关键词，可用换行、逗号或分号分隔。每个关键词都会原样传给 YouTube API，不做拼接变形。',
-    lbl_region:'目标地区（可多选）',lbl_lang:'内容语言',opt_any:'不限',ms_all:'全选',ms_clear:'清除',lbl_maxresults:'每次结果数',btn_search:'搜索 KOL',
+    lbl_keyword:'BD 搜索关键词',hint_keywords_multi:'支持多个关键词，可用换行、逗号或分号分隔。非加密关键词会自动补强 crypto/web3 搜索意图。',
+    lbl_region:'目标地区（可多选）',lbl_lang:'内容语言',lbl_region_mode:'地区模式',opt_any:'不限',ms_all:'全选',ms_clear:'清除',region_priority:'地区优先',region_strict:'严格地区',hint_region_priority:'优先搜索所选国家，但可能包含全球或邻近地区结果。',hint_region_strict:'过滤明确属于其他国家的频道；保留从目标地区搜到但频道国家未知的 KOL。',lbl_maxresults:'每次结果数',btn_search:'搜索 KOL',
     sec_signed:'WEEX 签约管理',lbl_excel_upload:'上传签约名单（Excel / CSV）',uz_label:'点击或拖拽上传',uz_hint:'支持 .xlsx / .xls / .csv',
     lbl_signed_manual:'或手动输入',ph_signed:'每行一个名称\n例如：Crypto Jack\n链上老王',hint_signed:'用频道名、@handle、简介做关键词匹配。',
     sec_signed:'签约 KOL 名单',lbl_excel_upload:'上传 Excel / CSV',uz_label:'点击或拖拽上传',uz_hint:'.xlsx / .xls / .csv — 自动合并内置名单',
@@ -767,7 +931,7 @@ const LANGS={
     ph_filter:'搜索名称、描述、链接、交易所…',filter_search:'搜索',filter_quality:'质量',filter_signed:'签约状态',filter_min_subs:'最低粉丝',filter_max_subs:'最高粉丝',filter_min_score:'最低评分',filter_freq:'频率',filter_exchange:'交易所',opt_all_quality:'全部质量',q_high:'高质量',q_medium:'中质量',q_low:'低质量',
     sf_exclude:'排除已签约',sf_include:'含已签约',sf_only:'仅已签约',
     ph_min_subs:'最低粉丝',ph_max_subs:'最高粉丝',ph_min_score:'最低评分',freq_all:'全部频率',freq_1:'≥1条/月',freq_4:'≥4条/月',freq_12:'≥12条/月',exf_all:'全部交易所',
-    notice:'社媒链接来自频道简介。已默认接入渠道名称与子渠道名称表，搜索后自动识别 WEEX 已签约 KOL。点击任意行查看详情。',
+    notice:'社媒链接来自频道简介、频道关键词和近期视频简介；严格地区会过滤明确属于其他国家的频道，但保留从目标地区搜到且国家未知的 KOL；交易所合作识别需要合作/赞助/邀请码/注册链接等上下文。点击任意行查看详情。',
     ps1:'① 关键词',ps2:'② 搜索',ps3:'③ 获取频道',ps4:'④ 分析视频',ps5:'⑤ 比对签约名单',
     th_kol:'KOL',th_quality:'质量',th_score:'评分',th_subs:'粉丝量',th_freq:'更新频率',th_country:'国籍/地区',th_links:'社媒链接',th_exchange:'交易所合作',th_status:'WEEX 签约状态',th_action:'操作',
     empty_title:'还没有搜索结果',empty_desc:'输入 API Key 和关键词开始，或点击 ◎ 加载演示数据。',empty_filter_title:'当前筛选下没有 KOL',empty_filter_desc:'放宽粉丝量、质量或评分筛选条件。',
@@ -779,7 +943,7 @@ const LANGS={
     signed_info:'已按严格频道名 / Handle 规则标记为 WEEX 签约 KOL：「{k}」。建议跳过。',
     toast_demo:'✅ 已加载演示数据。',toast_exported:'✅ 已导出 {n} 条 KOL 数据',toast_no_export:'没有可导出的 KOL',toast_copied:'链接已复制',
     toast_no_key:'请先输入 YouTube Data API v3 Key',toast_no_kw:'请输入 BD 搜索关键词',
-    toast_no_results:'没有找到频道，换个关键词试试。',toast_no_relevant:'搜索到的频道没有通过 Web3/Crypto 领域校验，建议换更明确的加密关键词。',toast_done:'✅ 搜索完成，共 {n} 个 Web3/Crypto KOL · 已过滤 {x} 个无关频道',
+    toast_no_results:'没有找到频道，换个关键词试试。',toast_no_relevant:'搜索到的频道没有通过 Web3/Crypto 或严格地区校验，建议切回地区优先或换更明确的加密关键词。',toast_done:'✅ 搜索完成，共 {n} 个 Web3/Crypto KOL · 已过滤 {x} 个无关/地区不匹配频道',
     toast_excel_ok:'✅ 签约名单已载入：从 Excel 读取 {n} 个名称',toast_excel_err:'文件读取失败，请检查格式。',
     btn_channel:'频道',btn_email:'邮件',topbar_found:'共 {n} 个 KOL · 显示 {f} 个',
     match_total:'共发现',match_signed:'已签约/排除',match_avail:'可开发',
@@ -801,6 +965,7 @@ function applyLang(){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===currentLang));
   document.documentElement.lang=currentLang==='zh'?'zh-CN':currentLang;
   if(typeof renderRegions==='function') renderRegions();
+  if(typeof updateRegionModeUI==='function') updateRegionModeUI();
   const sc=document.querySelector('#signedListCount');
   if(sc){
     const cnt=_signedNamesArr.filter(s=>s.trim().length>1).length;
@@ -827,6 +992,7 @@ const els={
   regionMulti:document.querySelector('#regionMulti'),regionTrigger:document.querySelector('#regionTrigger'),
   regionLabel:document.querySelector('#regionLabel'),regionOptions:document.querySelector('#regionOptions'),
   regionChips:document.querySelector('#regionChips'),regionSelectAll:document.querySelector('#regionSelectAll'),regionClear:document.querySelector('#regionClear'),
+  regionMode:document.querySelector('#regionMode'),regionModeHint:document.querySelector('#regionModeHint'),
   languageCode:document.querySelector('#languageCode'),maxResults:document.querySelector('#maxResults'),
   signedList:null,  /* signed list is in-memory; DOM element removed */
   exchangeTerms:document.querySelector('#exchangeTerms'),searchBtn:document.querySelector('#searchBtn'),
@@ -847,11 +1013,13 @@ const els={
   matchSummary:document.querySelector('#matchSummary'),matchList:document.querySelector('#matchList')
 };
 
-let rows=[],filteredRows=[],sortCol='subscriberCount',sortDir=-1,currentView='table',searchMode='channel';
+let rows=[],filteredRows=[],sortCol='subscriberCount',sortDir=-1,currentView='table';
+let searchMode=['channel','video','both'].includes(localStorage.getItem('weexKol.searchMode'))?localStorage.getItem('weexKol.searchMode'):'channel';
+let regionMode=localStorage.getItem('weexKol.regionMode')==='strict'?'strict':'priority';
 let paginationState={configs:[],apiKey:'',mode:'channel',pageLoads:0,maxPageLoads:20};
 let excelSignedNames=[]; // names loaded from Excel
 
-const persistKeys=['apiKey'];
+const persistKeys=[];
 persistKeys.forEach(k=>{const v=localStorage.getItem(`weexKol.${k}`);if(v)els[k].value=v;});
 persistKeys.forEach(k=>els[k].addEventListener('input',()=>localStorage.setItem(`weexKol.${k}`,els[k].value)));
 if(els.exchangeTerms) els.exchangeTerms.value=FIXED_EXCHANGE_TERMS;
@@ -879,6 +1047,10 @@ const REGION_GROUPS=[
 const REGION_NAME=Object.fromEntries(REGION_GROUPS.flatMap(g=>g.items));
 const REGION_CODE_BY_NAME=Object.fromEntries(Object.entries(REGION_NAME).map(([code,name])=>[norm(name),code]));
 let selectedRegions=JSON.parse(localStorage.getItem('weexKol.regions')||'[]').filter(c=>REGION_NAME[c]);
+function updateRegionModeUI(){
+  document.querySelectorAll('[data-region-mode]').forEach(b=>b.classList.toggle('active',b.dataset.regionMode===regionMode));
+  if(els.regionModeHint) els.regionModeHint.textContent=t(regionMode==='strict'?'hint_region_strict':'hint_region_priority');
+}
 function initRegionMulti(){
   els.regionOptions.innerHTML=REGION_GROUPS.map(g=>`<div class="ms-group">${esc(g.label)}</div>`+g.items.map(([code,name])=>`<label class="ms-option"><input type="checkbox" value="${code}" ${selectedRegions.includes(code)?'checked':''}> <span>${esc(name)}</span></label>`).join('')).join('');
   els.regionTrigger.addEventListener('click',e=>{e.stopPropagation();els.regionMulti.classList.toggle('open');});
@@ -886,13 +1058,28 @@ function initRegionMulti(){
   els.regionOptions.addEventListener('change',()=>{selectedRegions=[...els.regionOptions.querySelectorAll('input:checked')].map(i=>i.value);saveRegions();});
   els.regionSelectAll.addEventListener('click',()=>{selectedRegions=Object.keys(REGION_NAME);els.regionOptions.querySelectorAll('input').forEach(i=>i.checked=true);saveRegions();});
   els.regionClear.addEventListener('click',()=>{selectedRegions=[];els.regionOptions.querySelectorAll('input').forEach(i=>i.checked=false);saveRegions();});
+  document.querySelectorAll('[data-region-mode]').forEach(b=>b.addEventListener('click',()=>{
+    regionMode=b.dataset.regionMode==='strict'?'strict':'priority';
+    localStorage.setItem('weexKol.regionMode',regionMode);
+    updateRegionModeUI();
+    if(rows.length) render();
+  }));
   renderRegions();
+  updateRegionModeUI();
 }
 function saveRegions(){localStorage.setItem('weexKol.regions',JSON.stringify(selectedRegions));renderRegions();updateQuotaEstimate();if(rows.length)render();}
 function renderRegions(){
   const names=selectedRegions.map(c=>REGION_NAME[c]).filter(Boolean);
   els.regionLabel.textContent=names.length?`${names.length} selected`:t('opt_any');
   els.regionChips.innerHTML=names.slice(0,6).map(n=>`<span class="ms-chip">${esc(n)}</span>`).join('')+(names.length>6?`<span class="ms-chip">+${names.length-6}</span>`:'');
+}
+function strictRegionMatches(row){
+  if(regionMode!=='strict' || !selectedRegions.length) return true;
+  const allowed=new Set(selectedRegions.map(c=>String(c||'').toUpperCase()));
+  const countryCode=String(row.countryCode||'').toUpperCase();
+  if(countryCode) return allowed.has(countryCode);
+  const sourceRegions=(row.searchRegionCodes||[]).map(c=>String(c||'').toUpperCase());
+  return sourceRegions.some(c=>allowed.has(c));
 }
 initRegionMulti();
 // Live quota estimate
@@ -987,10 +1174,16 @@ const _origSetCache=typeof setCache!=='undefined'?setCache:null;
 // ══════════════════════════════════════════
 //  Search mode toggle
 // ══════════════════════════════════════════
-document.querySelectorAll('.stt-btn').forEach(b=>b.addEventListener('click',()=>{
+function updateSearchModeUI(){
+  document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===searchMode));
+}
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{
   searchMode=b.dataset.mode;
-  document.querySelectorAll('.stt-btn').forEach(x=>x.classList.toggle('active',x===b));
+  localStorage.setItem('weexKol.searchMode',searchMode);
+  updateSearchModeUI();
+  updateQuotaEstimate();
 }));
+updateSearchModeUI();
 
 // ══════════════════════════════════════════
 //  Helpers
@@ -1011,7 +1204,8 @@ function urlKey(u){
 }
 // Bare-domain list for non-https social URLs (e.g. "t.me/CoinBureau" in descriptions)
 const SOCIAL_BARE_DOMAINS=['t.me','telegram.me','telegram.dog','twitter.com','x.com',
-  'instagram.com','discord.gg','discord.com','whatsapp.com','wa.me'];
+  'instagram.com','discord.gg','discord.com','whatsapp.com','wa.me','linktr.ee','beacons.ai','carrd.co'];
+function rxEsc(v){return String(v||'').replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
 function extractUrls(t2){
   const text=String(t2||'');
   // Full https:// links
@@ -1019,16 +1213,35 @@ function extractUrls(t2){
   // Bare social-domain links without https (e.g. "t.me/Channel" or "twitter.com/user")
   const bare=[];
   for(const dom of SOCIAL_BARE_DOMAINS){
-    const escaped=dom.replace('.','\.');
-    const re=new RegExp('(?:^|[\s,|:])(' + escaped + '\/[^\s)\]}>]{1,80})','gi');
+    const escaped=rxEsc(dom);
+    const re=new RegExp('(?:^|[\\s,|:])(' + escaped + '\\/[^\\s)\\]}>]{1,100})','gi');
     for(const m of text.matchAll(re)) bare.push('https://'+m[1].trim());
   }
+  bare.push(...extractSocialHandles(text));
   const seen=new Set(),out=[];
   for(const u of [...http,...bare]){const k=urlKey(u);if(!seen.has(k)){seen.add(k);out.push(u);}}
   return out;
 }
 
-// Only the 5 platforms BD cares about: Telegram, X/Twitter, Instagram, Discord, WhatsApp
+function extractSocialHandles(text){
+  const out=[];
+  const patterns=[
+    {re:/(?:telegram|tg|t\.me)\s*[:：]\s*@?([a-z0-9_]{4,32})/gi,url:'https://t.me/'},
+    {re:/(?:x|twitter)\s*[:：]\s*@?([a-z0-9_]{3,32})/gi,url:'https://x.com/'},
+    {re:/(?:instagram|insta|ig)\s*[:：]\s*@?([a-z0-9_.]{3,32})/gi,url:'https://instagram.com/'},
+    {re:/(?:whatsapp|wa)\s*[:：]\s*\+?([0-9][0-9\s().-]{6,24})/gi,url:'https://wa.me/',clean:v=>v.replace(/\D/g,'')},
+    {re:/(?:discord)\s*[:：]\s*([a-z0-9_.-]{3,32}(?:#[0-9]{4})?)/gi,url:'https://discord.com/users/'}
+  ];
+  for(const p of patterns){
+    for(const m of text.matchAll(p.re)){
+      const raw=(p.clean?p.clean(m[1]):m[1]).replace(/^@/,'');
+      if(raw) out.push(p.url+raw);
+    }
+  }
+  return out;
+}
+
+// BD contact platforms: social profiles plus link-in-bio pages that usually contain the real socials.
 const LINK_MAP=[
   {k:'twitter.com',icon:'𝕏',name:'X'},
   {k:'x.com',icon:'𝕏',name:'X'},
@@ -1041,9 +1254,12 @@ const LINK_MAP=[
   {k:'discord.com',icon:'💬',name:'Discord'},
   {k:'whatsapp.com',icon:'💬',name:'WhatsApp'},
   {k:'wa.me',icon:'💬',name:'WhatsApp'},
+  {k:'linktr.ee',icon:'🔗',name:'Linktree'},
+  {k:'beacons.ai',icon:'🔗',name:'Beacons'},
+  {k:'carrd.co',icon:'🔗',name:'Carrd'},
 ];
 function isUsefulSocialOrContactUrl(u){
-  // Whitelist-only: accept ONLY the 5 platforms above, reject everything else
+  // Whitelist-only: accept BD contact/social platforms and link-in-bio pages, reject everything else.
   try{
     const h=new URL(cleanUrl(u)).hostname.replace(/^www\./,'').toLowerCase();
     return LINK_MAP.some(m=>h.includes(m.k));
@@ -1229,7 +1445,7 @@ function detectSigned(row){
 }
 
 const EXCHANGE_ALIASES={
-  'Binance':['binance','binance.com','bnb'],
+  'Binance':['binance','binance.com'],
   'OKX':['okx','okx.com'],
   'Bybit':['bybit','bybit.com'],
   'Bitget':['bitget','bitget.com'],
@@ -1249,6 +1465,26 @@ const EXCHANGE_ALIASES={
   'Bitmex':['bitmex','bitmex.com'],
   'Blofin':['blofin','blofin.com']
 };
+const EXCHANGE_CONTEXT_TERMS=[
+  'partner','partnership','official partner','sponsored','sponsor','affiliate','referral','refer','ref code','code',
+  'ambassador','promo','promotion','bonus','discount','sign up','signup','register','join','campaign','collab','collaboration',
+  '合作','伙伴','赞助','邀请码','返佣','注册链接','大使','推广','โบนัส','รหัส','referans','promocode'
+];
+const EXCHANGE_REF_RE=/[?&](ref|referral|affiliate|invite|invitecode|code|sharecode)=/i;
+function hasExchangeContext(rawLower,alias){
+  const needle=String(alias||'').toLowerCase();
+  if(!needle) return false;
+  const compactRaw=rawLower.replace(/\s+/g,' ');
+  const indices=[];
+  let idx=compactRaw.indexOf(needle);
+  while(idx!==-1){indices.push(idx);idx=compactRaw.indexOf(needle,idx+needle.length);}
+  return indices.some(i=>{
+    const window=compactRaw.slice(Math.max(0,i-90),Math.min(compactRaw.length,i+needle.length+90));
+    const hasContext=EXCHANGE_CONTEXT_TERMS.some(term=>window.includes(term));
+    const hasReferralLink=EXCHANGE_REF_RE.test(window);
+    return hasContext || hasReferralLink;
+  });
+}
 function detectExchanges(texts){
   const raw=String((texts||[]).filter(Boolean).join(' '));
   const src=norm(raw);
@@ -1261,9 +1497,11 @@ function detectExchanges(texts){
       const a=norm(alias);
       if(!a)return false;
       // Domains and dotted brands need raw check, e.g. gate.io / crypto.com.
-      if(alias.includes('.') && rawLower.includes(alias.toLowerCase()))return true;
+      if(alias.includes('.') && rawLower.includes(alias.toLowerCase())){
+        return hasExchangeContext(rawLower,alias) || EXCHANGE_REF_RE.test(rawLower);
+      }
       // For short brand names, use token boundaries to avoid random substring matches.
-      return new RegExp(`(^|\\s)${a.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}(\\s|$)`).test(src);
+      return new RegExp(`(^|\\s)${rxEsc(a)}(\\s|$)`).test(src) && hasExchangeContext(rawLower,alias);
     });
     if(matched)hit.push(name);
   }
@@ -1283,8 +1521,9 @@ const CRYPTO_CORE_TERMS=[
 const CRYPTO_WEAK_TERMS=[
   'futures trading','spot trading','perpetual','perp','leverage','long short','technical analysis','trading signal','trading signals','market analysis','chart analysis','scalping','copy trading'
 ];
+const STRONG_QUERY_TERMS=['crypto','cryptocurrency','bitcoin','btc','ethereum','eth','altcoin','blockchain','web3','defi','nft','airdrop','binance','okx','bybit','bitget','kucoin','exchange'];
 const NON_CRYPTO_NOISE_TERMS=[
-  'cooking','recipe','music','cover song','football','soccer','basketball','gaming','minecraft','roblox','beauty','makeup','travel vlog','fitness','movie','animation','comedy','prank','kids','toy review','car review','real estate'
+  'cooking','recipe','music','cover song','football','soccer','basketball','gaming','minecraft','roblox','beauty','makeup','travel vlog','fitness','movie','animation','comedy','prank','kids','toy review','car review','real estate','forex only','stock market','stocks only'
 ];
 function hasCryptoTerm(src,term){
   const q=norm(term);
@@ -1301,6 +1540,7 @@ function cryptoRelevanceOf(row,recentVideos){
   const fullSrc=norm(`${titleSrc} ${descSrc} ${recentSrc}`);
 
   const titleCore=uniqueHits(titleSrc,CRYPTO_CORE_TERMS);
+  const descCore=uniqueHits(descSrc,CRYPTO_CORE_TERMS);
   const allCore=uniqueHits(fullSrc,CRYPTO_CORE_TERMS);
   const weak=uniqueHits(fullSrc,CRYPTO_WEAK_TERMS);
   const noise=uniqueHits(fullSrc,NON_CRYPTO_NOISE_TERMS);
@@ -1313,12 +1553,13 @@ function cryptoRelevanceOf(row,recentVideos){
   score+=Math.min(20,recentCryptoVideos*5);
   score+=Math.min(16,exchangeCount*6);
   score+=Math.min(8,weak.length*2);
-  if(noise.length && !allCore.length && !exchangeCount) score-=25;
+  if(descCore.length) score+=Math.min(10,descCore.length*3);
+  if(noise.length && recentCryptoVideos<2 && !exchangeCount) score-=25;
 
-  const hasStrongIdentity=titleCore.length>0 || exchangeCount>0 || recentCryptoVideos>=2;
-  const hasEnoughCryptoSignals=allCore.length>=2 || (allCore.length>=1 && (recentCryptoVideos>=1 || exchangeCount>0 || titleCore.length>0));
+  const hasStrongIdentity=titleCore.length>0 || descCore.length>=2 || exchangeCount>0 || recentCryptoVideos>=2;
+  const hasEnoughCryptoSignals=allCore.length>=2 || (allCore.length>=1 && (recentCryptoVideos>=1 || exchangeCount>0 || titleCore.length>0 || descCore.length>=2));
   const onlyGenericTrading=allCore.length===0 && weak.length>0;
-  const pass=score>=28 && hasStrongIdentity && hasEnoughCryptoSignals && !onlyGenericTrading;
+  const pass=score>=34 && hasStrongIdentity && hasEnoughCryptoSignals && !onlyGenericTrading;
   return {pass,score,hits:[...new Set([...titleCore,...allCore])].slice(0,8),recentCryptoVideos};
 }
 
@@ -1426,7 +1667,7 @@ function applyFilters(){
     maxSubs=Number(els.maxSubs.value||0),minScore=Number(els.minScore.value||0),
     minFreq=Number(els.frequencyFilter.value),exchFilter=els.exchangeFilter.value;
   filteredRows=rows.filter(row=>{
-    // Region selection is used as YouTube search bias only, not a strict display filter.
+    if(!strictRegionMatches(row)) return false;
     const hay=norm([row.title,row.description,row.country,row.urls.join(' '),row.exchangePartners.join(' ')].join(' '));
     if(text&&!hay.includes(text)) return false;
     if(quality&&row.quality!==quality) return false;
@@ -1570,12 +1811,46 @@ function setCache(path,params,data){
 }
 async function ytFetch(path,params,opt={cache:true}){
   if(opt.cache){const cached=getCache(path,params);if(cached)return cached;}
-  const url=new URL(`https://www.googleapis.com/youtube/v3/${path}`);
-  Object.entries(params).forEach(([k,v])=>{if(v!==''&&v!==undefined&&v!==null)url.searchParams.set(k,v);});
+  const url=new URL(`/api/youtube/${path}`, location.origin);
+  Object.entries(params).forEach(([k,v])=>{if(k!=='key'&&v!==''&&v!==undefined&&v!==null)url.searchParams.set(k,v);});
   const res=await fetch(url);const data=await res.json();
   if(!res.ok) throw new Error(data.error?.message||`YouTube API ${res.status}`);
   if(opt.cache)setCache(path,params,data);
   return data;
+}
+
+function decodeHtmlEntities(s){
+  const ta=document.createElement('textarea');
+  ta.innerHTML=String(s||'');
+  return ta.value;
+}
+function extractLinksFromYouTubeAboutHtml(html){
+  const text=decodeHtmlEntities(String(html||'')
+    .replace(/\\u0026/g,'&')
+    .replace(/\\\//g,'/')
+    .replace(/&quot;/g,'"'));
+  const urls=extractUrls(text);
+  const ytRedirects=[...text.matchAll(/(?:q|url)=((?:https?%3A%2F%2F|https?:\/\/)[^"&\\]+)/gi)]
+    .map(m=>decodeURIComponent(m[1]).replace(/\\u0026/g,'&'));
+  return [...new Set([...urls,...ytRedirects].map(cleanUrl))];
+}
+async function fetchChannelAboutLinks(ch){
+  const urls=[
+    ch.snippet?.customUrl?`https://www.youtube.com/${ch.snippet.customUrl}/about`:'',
+    ch.id?`https://www.youtube.com/channel/${ch.id}/about`:''
+  ].filter(Boolean);
+  for(const url of urls){
+    try{
+      const res=await fetch(url,{credentials:'omit'});
+      if(!res.ok) continue;
+      const html=await res.text();
+      const links=extractLinksFromYouTubeAboutHtml(html);
+      if(links.length) return links;
+    }catch(err){
+      console.warn('[WEEX KOL Finder] Channel about links unavailable:', ch.id, err?.message||err);
+    }
+  }
+  return [];
 }
 
 async function getRecentVideosFromUploads(ch,apiKey){
@@ -1587,8 +1862,9 @@ async function getRecentVideosFromUploads(ch,apiKey){
 
   let listData;
   try{
-    // Step 1: get recent video IDs via playlistItems (cheap: 1 unit)
-    listData=await ytFetch('playlistItems',{key:apiKey,part:'snippet,contentDetails',playlistId:uploads,maxResults:10});
+    // Quota-light frequency estimate: one uploads page only.
+    // 50 recent videos is enough for BD ranking while avoiding expensive per-channel pagination.
+    listData=await ytFetch('playlistItems',{key:apiKey,part:'snippet,contentDetails',playlistId:uploads,maxResults:50});
   }catch(err){
     // Some channels returned by search may have deleted/private/unavailable uploads playlists.
     // Do not stop the whole search because of one invalid channel playlist.
@@ -1605,8 +1881,8 @@ async function getRecentVideosFromUploads(ch,apiKey){
   if(!items.length)return [];
 
   // Step 2: fetch full video details including COMPLETE description (snippet.description is truncated in playlistItems)
-  // videos.list costs 1 unit for up to 50 videos — essential for social link extraction
-  const videoIds=items.map(i=>i.contentDetails?.videoId||i.snippet?.resourceId?.videoId).filter(Boolean);
+  // videos.list costs 1 unit for up to 50 videos — enough for social/exchange extraction while frequency uses all fetched upload items.
+  const videoIds=items.slice(0,50).map(i=>i.contentDetails?.videoId||i.snippet?.resourceId?.videoId).filter(Boolean);
   if(!videoIds.length)return [];
 
   let videoData={items:[]};
@@ -1642,6 +1918,11 @@ function buildSearchQueries(){
     .filter((v,i,a)=>a.findIndex(x=>x.toLowerCase()===v.toLowerCase())===i)
     .slice(0,8);
 }
+function reinforceCryptoQuery(q){
+  const src=norm(q);
+  if(STRONG_QUERY_TERMS.some(term=>src.includes(norm(term)))) return q;
+  return `${q} crypto web3`;
+}
 function estimateSearchCalls(queries,regions){
   const modeFactor=searchMode==='both'?2:1;
   return queries.length*Math.max(1,regions.length)*modeFactor;
@@ -1673,18 +1954,21 @@ function updateLoadMoreButton(){
   }
 }
 
-async function hydrateChannelResults(channelIds,apiKey){
+async function hydrateChannelResults(channelIds,apiKey,channelRegionMap=new Map()){
   const ids=[...new Set(channelIds)].filter(id=>id && !rows.some(r=>r.id===id)).slice(0,50);
   if(!ids.length) return {items:[],filtered:0};
   const channels=await ytFetch('channels',{key:apiKey,part:'snippet,statistics,brandingSettings,contentDetails',id:ids.join(','),maxResults:50});
   const hydrated=[];
-  let nonCryptoCount=0;
+  let filteredCount=0;
   for(const ch of channels.items||[]){
     const recent=await getRecentVideosFromUploads(ch,apiKey);
+    const aboutLinks=await fetchChannelAboutLinks(ch);
     const now=Date.now();
     const v30=recent.filter(v=>now-new Date(v.snippet.publishedAt).getTime()<=30*86400000).length;
     const v90=recent.filter(v=>now-new Date(v.snippet.publishedAt).getTime()<=90*86400000).length;
     const desc=ch.snippet?.description||'';
+    const channelLinkText=aboutLinks.join('\n');
+    const searchRegionCodes=[...(channelRegionMap.get(ch.id)||[])].filter(Boolean);
     const base={
       id:ch.id,title:ch.snippet?.title||'',customUrl:ch.snippet?.customUrl||'',description:desc,
       avatar:ch.snippet?.thumbnails?.default?.url||'https://placehold.co/88x88/171c24/7a6a50?text=KOL',
@@ -1695,26 +1979,29 @@ async function hydrateChannelResults(channelIds,apiKey){
         desc,
         ch.brandingSettings?.channel?.keywords||'',
         ch.brandingSettings?.channel?.unsubscribedTrailer||'',
-        ...recent.flatMap(v=>[v.snippet.description])
+        channelLinkText,
+        ...recent.flatMap(v=>[v.snippet.title, v.snippet.description])
       ]),
       recentVideos:recent.map(v=>({title:v.snippet.title||'',description:v.snippet.description||'',publishedAt:v.snippet.publishedAt||''})),
+      homepageLinks:aboutLinks,
+      searchRegionCodes,
       channelUrl:`https://www.youtube.com/channel/${ch.id}`,
-      exchangePartners:detectExchanges([desc,...recent.flatMap(v=>[v.snippet.title, v.snippet.description])])
+      exchangePartners:detectExchanges([desc,channelLinkText,...recent.flatMap(v=>[v.snippet.title, v.snippet.description])])
     };
+    if(!strictRegionMatches(base)){filteredCount++;continue;}
     const relevance=cryptoRelevanceOf(base,recent);
     base.cryptoRelevant=relevance.pass;base.cryptoScore=relevance.score;base.cryptoHits=relevance.hits;
-    if(!relevance.pass){nonCryptoCount++;continue;}
+    if(!relevance.pass){filteredCount++;continue;}
     const signed=detectSigned(base);base.signed=signed.signed;base.signedMatched=signed.matched;
     const quality=qualityOf(base);base.quality=quality.grade;base.score=quality.score;base.scoreBreakdown=quality.breakdown;
     hydrated.push(base);
   }
-  return {items:hydrated,filtered:nonCryptoCount};
+  return {items:hydrated,filtered:filteredCount};
 }
 
 async function searchKol(){
-  const apiKey=els.apiKey.value.trim(),queries=buildSearchQueries();
+  const apiKey='server-key-pool',queries=buildSearchQueries();
   const maxR=els.maxResults.value,regions=selectedRegions.length?selectedRegions:[''],lang=els.languageCode.value;
-  if(!apiKey) return showToast(t('toast_no_key'));
   if(!queries.length) return showToast(t('toast_no_kw'));
   if(!shouldProceedQuota(queries,regions)) return;
   els.loading.classList.add('active');els.searchBtn.disabled=true;
@@ -1724,22 +2011,34 @@ async function searchKol(){
     _cacheHits=0;
     setStep(2);
     const idSet=new Set();
+    const channelRegionMap=new Map();
+    const addSearchHit=(channelId,region)=>{
+      if(!channelId)return;
+      idSet.add(channelId);
+      if(region){
+        const cur=channelRegionMap.get(channelId)||new Set();
+        cur.add(region);
+        channelRegionMap.set(channelId,cur);
+      }
+    };
     paginationState={configs:[],apiKey,mode:searchMode,pageLoads:0,maxPageLoads:20};
     if(searchMode==='channel'||searchMode==='both'){
       for(const q2 of queries){
+        const qSearch=reinforceCryptoQuery(q2);
         for(const region of regions){
-          const d=await ytFetch('search',{key:apiKey,part:'snippet',q:q2,type:'channel',order:'relevance',maxResults:maxR,regionCode:region,relevanceLanguage:lang});
-          paginationState.configs.push({q:q2,type:'channel',region,lang,maxR,nextPageToken:d.nextPageToken||''});
-          (d.items||[]).forEach(i=>{if(i.snippet?.channelId)idSet.add(i.snippet.channelId);});
+          const d=await ytFetch('search',{key:apiKey,part:'snippet',q:qSearch,type:'channel',order:'relevance',maxResults:maxR,regionCode:region,relevanceLanguage:lang});
+          paginationState.configs.push({q:qSearch,type:'channel',region,lang,maxR,nextPageToken:d.nextPageToken||''});
+          (d.items||[]).forEach(i=>addSearchHit(i.snippet?.channelId,region));
         }
       }
     }
     if(searchMode==='video'||searchMode==='both'){
       for(const q2 of queries){
+        const qSearch=reinforceCryptoQuery(q2);
         for(const region of regions){
-          const d=await ytFetch('search',{key:apiKey,part:'snippet',q:q2,type:'video',order:'relevance',maxResults:maxR,regionCode:region,relevanceLanguage:lang});
-          paginationState.configs.push({q:q2,type:'video',region,lang,maxR,nextPageToken:d.nextPageToken||''});
-          (d.items||[]).forEach(i=>{if(i.snippet?.channelId)idSet.add(i.snippet.channelId);});
+          const d=await ytFetch('search',{key:apiKey,part:'snippet',q:qSearch,type:'video',order:'relevance',maxResults:maxR,regionCode:region,relevanceLanguage:lang});
+          paginationState.configs.push({q:qSearch,type:'video',region,lang,maxR,nextPageToken:d.nextPageToken||''});
+          (d.items||[]).forEach(i=>addSearchHit(i.snippet?.channelId,region));
         }
       }
     }
@@ -1747,7 +2046,7 @@ async function searchKol(){
     if(!channelIds.length){rows=[];render();updateLoadMoreButton();return showToast(t('toast_no_results'));}
     setStep(3);
     setStep(4);
-    const hydratedResult=await hydrateChannelResults(channelIds,apiKey);
+    const hydratedResult=await hydrateChannelResults(channelIds,apiKey,channelRegionMap);
     const hydrated=hydratedResult.items;
     if(!hydrated.length){rows=[];render();updateLoadMoreButton();return showToast(t('toast_no_relevant'));}
     setStep(5);
@@ -1790,8 +2089,7 @@ function loadDemo(){
 async function loadMorePage(){
   const cfg=(paginationState.configs||[]).find(c=>c.nextPageToken);
   if(!cfg) return showToast('No more pages available for the current search.');
-  const apiKey=paginationState.apiKey || els.apiKey.value.trim();
-  if(!apiKey) return showToast(t('toast_no_key'));
+  const apiKey=paginationState.apiKey || 'server-key-pool';
   if(paginationState.pageLoads>=paginationState.maxPageLoads){
     updateLoadMoreButton();
     return showToast('Reached the manual load limit for this search. Start a new search to continue.');
@@ -1807,13 +2105,19 @@ async function loadMorePage(){
     cfg.nextPageToken=d.nextPageToken||'';
     paginationState.pageLoads++;
     const ids=[];
-    (d.items||[]).forEach(i=>{if(i.snippet?.channelId)ids.push(i.snippet.channelId);});
+    const channelRegionMap=new Map();
+    (d.items||[]).forEach(i=>{
+      const channelId=i.snippet?.channelId;
+      if(!channelId)return;
+      ids.push(channelId);
+      if(cfg.region) channelRegionMap.set(channelId,new Set([cfg.region]));
+    });
     if(!ids.length){
       updateLoadMoreButton();
       return showToast('No more channels found on this page.');
     }
     setStep(3);setStep(4);
-    const hydratedResult=await hydrateChannelResults(ids,apiKey);
+    const hydratedResult=await hydrateChannelResults(ids,apiKey,channelRegionMap);
     if(hydratedResult.items.length){
       rows=[...rows,...hydratedResult.items].sort((a,b)=>b.score-a.score || b.subscriberCount-a.subscriberCount);
       updateExchangeFilter();
@@ -1857,7 +2161,7 @@ if(els.signedList) els.signedList.addEventListener('input',()=>{
   rows=rows.map(r=>{const s=detectSigned(r);return{...r,signed:s.signed,signedMatched:s.matched};});render();
 });
 els.exchangeTerms.addEventListener('input',()=>{
-  rows=rows.map(r=>{const ep=detectExchanges([r.description,...(r.recentVideos||[]).flatMap(v=>[v.title,v.description])]);const q=qualityOf({...r,exchangePartners:ep});return{...r,exchangePartners:ep,quality:q.grade,score:q.score,scoreBreakdown:q.breakdown};});
+  rows=rows.map(r=>{const ep=detectExchanges([r.description,...(r.homepageLinks||[]),...(r.recentVideos||[]).flatMap(v=>[v.title,v.description])]);const q=qualityOf({...r,exchangePartners:ep});return{...r,exchangePartners:ep,quality:q.grade,score:q.score,scoreBreakdown:q.breakdown};});
   updateExchangeFilter();render();
 });
 
