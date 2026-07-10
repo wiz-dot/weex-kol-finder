@@ -393,159 +393,6 @@ td{padding:13px 16px;font-size:13px;vertical-align:middle}
   .card-grid{grid-template-columns:1fr;padding:12px}
   .drawer{width:100%;right:-100%}
 }
-
-/* ── Visual refresh: BD workspace layout ── */
-:root{
-  --sidebar-w:360px;
-  --bg:#080808;
-  --bg2:#101010;
-  --panel:#181818;
-  --panel2:#202020;
-  --panel3:#272727;
-  --border:#2e2e2e;
-  --border2:#414141;
-  --ink:#f4f4f5;
-  --ink2:#d4d4d8;
-  --ink3:#8b8b92;
-  --gold:#f6c915;
-  --gold2:#ffdf4d;
-  --r:12px;
-  --rs:10px;
-}
-body{background:#080808}
-.app{background:#080808}
-aside{
-  background:#0f0f10;
-  border-right:1px solid #303033;
-  box-shadow:12px 0 36px rgba(0,0,0,.26);
-}
-.brand{
-  padding:22px 22px 18px;
-  background:#121212;
-  border-bottom:1px solid #303033;
-}
-.logo-box{width:42px;height:42px;border-radius:12px;box-shadow:none}
-.brand-text h1{font-size:16px;letter-spacing:-.2px}
-.brand-text p{font-size:12px;color:#9a9aa0}
-.lang-bar{padding:12px 20px;background:#111112;gap:6px}
-.lang-btn{height:28px;padding:0 11px;border-radius:7px}
-.lang-btn.active{background:#2a2513}
-.sidebar-content{gap:14px;padding:16px 16px 22px}
-.s-section{
-  padding:18px;
-  border:1px solid #2f2f32;
-  border-radius:14px;
-  background:#141415;
-  box-shadow:0 10px 28px rgba(0,0,0,.16);
-}
-.s-section:last-child{padding-bottom:18px;border-bottom:1px solid #2f2f32}
-.s-label{font-size:10px;margin-bottom:16px;color:#ffd633}
-.s-label::after{background:#343028}
-.s-stack{gap:16px}
-.s-row{gap:12px}
-label.fl{font-size:12px;font-weight:800;color:#dfdfe2;margin-bottom:8px}
-.hint,.region-mode-hint{font-size:12px;line-height:1.55;color:#96969d;margin-top:8px}
-.api-label-row{align-items:flex-end}
-.api-key-link{font-size:12px}
-.field,.sel,.ta,.ms-trigger{
-  background:#1b1b1c;
-  border-color:#38383c;
-  border-radius:11px;
-  min-height:40px;
-  color:#f5f5f6;
-}
-.field,.sel{height:42px}
-.ta{padding:11px 12px;font-size:13px}
-.keyword-ta{min-height:128px}
-.field:focus,.sel:focus,.ta:focus,.ms-trigger:hover,.multi-select.open .ms-trigger{
-  border-color:#f6c915;
-  box-shadow:0 0 0 3px rgba(246,201,21,.12);
-}
-.ms-trigger{font-size:13px;padding:9px 34px 9px 12px}
-.ms-menu{background:#181819;border-color:#3f3f43;border-radius:12px;box-shadow:0 20px 56px rgba(0,0,0,.72)}
-.ms-selected-list{gap:6px;margin-top:8px}
-.ms-chip{border-color:rgba(246,201,21,.34);background:rgba(246,201,21,.1);padding:3px 9px;font-size:11px;border-radius:8px}
-.stt{
-  height:44px;
-  border-radius:12px;
-  background:#1a1a1b;
-  border-color:#3a3a3d;
-  padding:3px;
-  gap:3px;
-  overflow:hidden;
-}
-.stt-btn{
-  border:0;
-  border-radius:9px;
-  font-size:13px;
-  padding:0 10px;
-  min-width:0;
-  color:#9a9aa0;
-}
-.stt-btn.active{
-  color:#111;
-  background:#f6c915;
-  border-bottom:0;
-  box-shadow:0 6px 18px rgba(246,201,21,.18);
-}
-.stt-btn:hover:not(.active){background:#252528;color:#f0f0f0}
-.region-mode-card{
-  padding:14px;
-  border:1px solid #343438;
-  background:#19191a;
-  border-radius:13px;
-}
-.region-mode{height:48px;margin-top:0}
-.region-mode .stt-btn{font-size:12px;line-height:1.2;min-height:0;font-weight:900}
-.btn-row{grid-template-columns:1fr 44px;gap:10px;margin-top:4px}
-.btn-primary{height:46px;border-radius:12px;box-shadow:none;font-size:14px}
-.btn-primary:hover{box-shadow:0 10px 30px rgba(246,201,21,.22)}
-.btn-icon{height:46px;border-radius:12px;background:#1b1b1d}
-main{background:#090909}
-.topbar{
-  padding:18px 28px;
-  background:#101011;
-  border-bottom:1px solid #2d2d30;
-}
-.topbar::after{display:none}
-.topbar h2{font-size:19px}
-.topbar-sub{font-size:13px}
-.btn-secondary,.view-toggle{border-radius:10px}
-.metrics-bar{
-  gap:10px;
-  padding:14px 28px;
-  background:#0d0d0e;
-  border-bottom:1px solid #2d2d30;
-}
-.metric-cell{
-  border:1px solid #303033;
-  border-radius:12px;
-  padding:15px 16px;
-  background:#151516;
-}
-.metric-cell .m-val{font-size:26px}
-.filter-bar{
-  padding:14px 28px;
-  background:#101011;
-  border-bottom:1px solid #2d2d30;
-  gap:10px 12px;
-}
-.notice-bar{background:#0f0f10;border-bottom:1px solid #2d2d30}
-table{min-width:1120px}
-thead th{background:#101011}
-tbody tr:hover{background:rgba(246,201,21,.045)}
-.drawer{background:#111112}
-.d-stat,.d-desc,.d-link-item{border-radius:12px}
-@media(max-width:1100px){
-  :root{--sidebar-w:320px}
-  .sidebar-content{padding:12px}
-  .s-section{padding:14px}
-}
-@media(max-width:860px){
-  .app{grid-template-columns:1fr}
-  aside{position:relative;height:auto;max-height:none}
-  .metrics-bar,.filter-bar{padding-left:16px;padding-right:16px}
-}
 </style>
 </head>
 <body>
@@ -572,7 +419,7 @@ tbody tr:hover{background:rgba(246,201,21,.045)}
     <div class="s-section s-stack">
       <div class="s-label" data-i="sec_search">Search Config</div>
 
-      <div class="api-key-config" style="display:none">
+      <div>
         <div class="api-label-row">
           <label class="fl" for="apiKey" data-i="lbl_apikey">YouTube Data API v3 Key</label>
           <a class="api-key-link" href="https://developers.google.com/youtube/v3/getting-started" target="_blank" rel="noopener noreferrer" data-i="api_get_key">Get API Key ↗</a>
@@ -618,6 +465,11 @@ web3 news"></textarea>
             </div>
           </div>
           <div class="ms-selected-list" id="regionChips"></div>
+          <div class="stt region-mode" id="regionMode">
+            <button type="button" class="stt-btn active" data-region-mode="priority" data-i="region_priority">Region Priority</button>
+            <button type="button" class="stt-btn" data-region-mode="strict" data-i="region_strict">Strict Region</button>
+          </div>
+          <p class="region-mode-hint" id="regionModeHint" data-i="hint_region_priority">Prioritize selected countries, but may include global/nearby results.</p>
         </div>
         <div>
           <label class="fl" for="languageCode" data-i="lbl_lang">Language</label>
@@ -643,14 +495,6 @@ web3 news"></textarea>
             <option value="uk">Українська</option>
           </select>
         </div>
-      </div>
-      <div class="region-mode-card">
-        <label class="fl" data-i="lbl_region_mode">Region Mode</label>
-        <div class="stt region-mode" id="regionMode">
-          <button type="button" class="stt-btn active" data-region-mode="priority" data-i="region_priority">Region Priority</button>
-          <button type="button" class="stt-btn" data-region-mode="strict" data-i="region_strict">Strict Region</button>
-        </div>
-        <p class="region-mode-hint" id="regionModeHint" data-i="hint_region_priority">Prioritize selected countries, but may include global/nearby results.</p>
       </div>
 
       <div>
@@ -885,7 +729,7 @@ const LANGS={
     brand_sub:'YouTube BD Dashboard',sec_search:'Search Config',lbl_apikey:'YouTube Data API v3 Key',api_get_key:'Get API Key ↗',hint_apikey:'Stored locally, never transmitted.',
     lbl_search_type:'Search Mode',mode_channel:'Channel',mode_video:'Video topic',mode_both:'Both',hint_search_type:'Video topic mode finds KOLs by content, not just channel name.',
     lbl_keyword:'Search Keywords',hint_keywords_multi:'Support multiple keywords. Separate by line, comma, or semicolon. Non-crypto keywords are automatically reinforced with crypto/web3 intent.',
-    lbl_region:'Regions',lbl_lang:'Language',lbl_region_mode:'Region Mode',opt_any:'Any',ms_all:'Select all',ms_clear:'Clear',region_priority:'Region Priority',region_strict:'Strict Region',hint_region_priority:'Prioritize selected countries, but may include global/nearby results.',hint_region_strict:'Hide channels with a different YouTube country; keep unknown-country KOLs found from the selected region.',lbl_maxresults:'Results/query',btn_search:'Search KOLs',
+    lbl_region:'Regions',lbl_lang:'Language',opt_any:'Any',ms_all:'Select all',ms_clear:'Clear',region_priority:'Region Priority',region_strict:'Strict Region',hint_region_priority:'Prioritize selected countries, but may include global/nearby results.',hint_region_strict:'Hide channels with a different YouTube country; keep unknown-country KOLs found from the selected region.',lbl_maxresults:'Results/query',btn_search:'Search KOLs',
     sec_signed:'WEEX Signed KOLs',lbl_excel_upload:'Upload Signed List (Excel/CSV)',uz_label:'Click or drag to upload',uz_hint:'.xlsx / .xls / .csv',
     lbl_signed_manual:'Or enter manually',ph_signed:'One name per line\ne.g. Crypto Jack',hint_signed:'Matched against channel name, handle, and description.',
     sec_signed:'Signed KOL List',lbl_excel_upload:'Upload Excel / CSV',uz_label:'Click or drag to upload',uz_hint:'.xlsx / .xls / .csv — auto-merges with built-in list',
@@ -920,7 +764,7 @@ const LANGS={
     brand_sub:'YouTube BD 搜索仪表盘',sec_search:'搜索配置',lbl_apikey:'YouTube Data API v3 Key',api_get_key:'获取 API Key ↗',hint_apikey:'Key 仅存于本地，不会外传。',
     lbl_search_type:'搜索模式',mode_channel:'频道名称',mode_video:'视频话题',mode_both:'同时搜索',hint_search_type:'视频话题模式：通过 KOL 讨论内容发现他们，覆盖更广。',
     lbl_keyword:'BD 搜索关键词',hint_keywords_multi:'支持多个关键词，可用换行、逗号或分号分隔。非加密关键词会自动补强 crypto/web3 搜索意图。',
-    lbl_region:'目标地区（可多选）',lbl_lang:'内容语言',lbl_region_mode:'地区模式',opt_any:'不限',ms_all:'全选',ms_clear:'清除',region_priority:'地区优先',region_strict:'严格地区',hint_region_priority:'优先搜索所选国家，但可能包含全球或邻近地区结果。',hint_region_strict:'过滤明确属于其他国家的频道；保留从目标地区搜到但频道国家未知的 KOL。',lbl_maxresults:'每次结果数',btn_search:'搜索 KOL',
+    lbl_region:'目标地区（可多选）',lbl_lang:'内容语言',opt_any:'不限',ms_all:'全选',ms_clear:'清除',region_priority:'地区优先',region_strict:'严格地区',hint_region_priority:'优先搜索所选国家，但可能包含全球或邻近地区结果。',hint_region_strict:'过滤明确属于其他国家的频道；保留从目标地区搜到但频道国家未知的 KOL。',lbl_maxresults:'每次结果数',btn_search:'搜索 KOL',
     sec_signed:'WEEX 签约管理',lbl_excel_upload:'上传签约名单（Excel / CSV）',uz_label:'点击或拖拽上传',uz_hint:'支持 .xlsx / .xls / .csv',
     lbl_signed_manual:'或手动输入',ph_signed:'每行一个名称\n例如：Crypto Jack\n链上老王',hint_signed:'用频道名、@handle、简介做关键词匹配。',
     sec_signed:'签约 KOL 名单',lbl_excel_upload:'上传 Excel / CSV',uz_label:'点击或拖拽上传',uz_hint:'.xlsx / .xls / .csv — 自动合并内置名单',
@@ -1019,7 +863,7 @@ let regionMode=localStorage.getItem('weexKol.regionMode')==='strict'?'strict':'p
 let paginationState={configs:[],apiKey:'',mode:'channel',pageLoads:0,maxPageLoads:20};
 let excelSignedNames=[]; // names loaded from Excel
 
-const persistKeys=[];
+const persistKeys=['apiKey'];
 persistKeys.forEach(k=>{const v=localStorage.getItem(`weexKol.${k}`);if(v)els[k].value=v;});
 persistKeys.forEach(k=>els[k].addEventListener('input',()=>localStorage.setItem(`weexKol.${k}`,els[k].value)));
 if(els.exchangeTerms) els.exchangeTerms.value=FIXED_EXCHANGE_TERMS;
@@ -1811,8 +1655,8 @@ function setCache(path,params,data){
 }
 async function ytFetch(path,params,opt={cache:true}){
   if(opt.cache){const cached=getCache(path,params);if(cached)return cached;}
-  const url=new URL(`/api/youtube/${path}`, location.origin);
-  Object.entries(params).forEach(([k,v])=>{if(k!=='key'&&v!==''&&v!==undefined&&v!==null)url.searchParams.set(k,v);});
+  const url=new URL(`https://www.googleapis.com/youtube/v3/${path}`);
+  Object.entries(params).forEach(([k,v])=>{if(v!==''&&v!==undefined&&v!==null)url.searchParams.set(k,v);});
   const res=await fetch(url);const data=await res.json();
   if(!res.ok) throw new Error(data.error?.message||`YouTube API ${res.status}`);
   if(opt.cache)setCache(path,params,data);
@@ -2000,8 +1844,9 @@ async function hydrateChannelResults(channelIds,apiKey,channelRegionMap=new Map(
 }
 
 async function searchKol(){
-  const apiKey='server-key-pool',queries=buildSearchQueries();
+  const apiKey=els.apiKey.value.trim(),queries=buildSearchQueries();
   const maxR=els.maxResults.value,regions=selectedRegions.length?selectedRegions:[''],lang=els.languageCode.value;
+  if(!apiKey) return showToast(t('toast_no_key'));
   if(!queries.length) return showToast(t('toast_no_kw'));
   if(!shouldProceedQuota(queries,regions)) return;
   els.loading.classList.add('active');els.searchBtn.disabled=true;
@@ -2089,7 +1934,8 @@ function loadDemo(){
 async function loadMorePage(){
   const cfg=(paginationState.configs||[]).find(c=>c.nextPageToken);
   if(!cfg) return showToast('No more pages available for the current search.');
-  const apiKey=paginationState.apiKey || 'server-key-pool';
+  const apiKey=paginationState.apiKey || els.apiKey.value.trim();
+  if(!apiKey) return showToast(t('toast_no_key'));
   if(paginationState.pageLoads>=paginationState.maxPageLoads){
     updateLoadMoreButton();
     return showToast('Reached the manual load limit for this search. Start a new search to continue.');
